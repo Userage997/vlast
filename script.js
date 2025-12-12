@@ -47,27 +47,19 @@ document.addEventListener('DOMContentLoaded', function() {
         showScreen('main');
     }, 5000); // 5 секунд для вступительной анимации
 
-    // Обработчики для кнопок главного меню
-    document.querySelectorAll('.menu-btn[data-target]').forEach(button => {
+    // Обработчики для кнопок-действий (переход на другой экран)
+    document.querySelectorAll('.action-btn').forEach(button => {
         button.addEventListener('click', function() {
             const targetScreen = this.getAttribute('data-target');
-            showScreen(targetScreen);
+            if (targetScreen) {
+                showScreen(targetScreen);
+            }
         });
     });
 
     // Обработчики для кнопок "Назад"
     document.querySelectorAll('.back-btn').forEach(button => {
         button.addEventListener('click', goBack);
-    });
-
-    // Обработчик для кнопок-ссылок (чтобы они открывались в новой вкладке)
-    document.querySelectorAll('a.menu-btn').forEach(link => {
-        link.addEventListener('click', function(e) {
-            // Для внешних ссылок не добавляем в историю
-            if (this.getAttribute('href').startsWith('http')) {
-                e.stopPropagation();
-            }
-        });
     });
 
     // Пропускаем вступительную анимацию по клику
@@ -78,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Добавляем анимацию при наведении на кнопки
-    document.querySelectorAll('.menu-btn').forEach(btn => {
+    document.querySelectorAll('.action-btn, .link-btn').forEach(btn => {
         btn.addEventListener('mouseenter', function() {
             this.style.transition = 'all 0.3s ease';
         });
@@ -86,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Анимация появления кнопок в главном меню
     setTimeout(() => {
-        const menuButtons = document.querySelectorAll('.main-menu .menu-btn');
+        const menuButtons = document.querySelectorAll('.main-menu .action-btn');
         menuButtons.forEach((btn, index) => {
             setTimeout(() => {
                 btn.style.opacity = '0';
@@ -100,4 +92,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }, index * 100);
         });
     }, 500);
+    
+    // Улучшение для мобильных устройств
+    function checkMobile() {
+        return window.innerWidth <= 768;
+    }
+    
+    // Дополнительная обработка для мобильных
+    if (checkMobile()) {
+        // Убедимся, что все контейнеры центрированы
+        document.querySelectorAll('.container').forEach(container => {
+            container.style.padding = '10px';
+        });
+    }
 });
