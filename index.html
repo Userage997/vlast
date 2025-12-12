@@ -1,1 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vlast - Адаптер</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Russo+One&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Вступительная анимация -->
+    <div class="screen intro-screen active">
+        <div class="intro-content">
+            <div class="intro-text">
+                <h1 class="intro-title">Привет, это сайт для</h1>
+                <h1 class="vlast-title">Vlast</h1>
+                <div class="intro-subtitle">Адаптер сообщества</div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Главное меню -->
+    <div class="screen main-menu">
+        <div class="container">
+            <h1 class="menu-title">Vlast <span>Community</span></h1>
+            <div class="buttons-grid">
+                <button class="menu-btn" data-target="projects">
+                    <i class="fas fa-code"></i>
+                    <span>Проекты</span>
+                </button>
+                <button class="menu-btn" data-target="social">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Соц сети</span>
+                </button>
+                <button class="menu-btn" data-target="team">
+                    <i class="fas fa-users"></i>
+                    <span>Менеджеры и дизайнеры</span>
+                </button>
+                <button class="menu-btn" data-target="services">
+                    <i class="fas fa-concierge-bell"></i>
+                    <span>Услуги</span>
+                </button>
+            </div>
+            <div class="user-info">
+                <p>Пользователь: @swatdc</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Экран проектов -->
+    <div class="screen projects-screen">
+        <div class="container">
+            <button class="back-btn"><i class="fas fa-arrow-left"></i> Назад</button>
+            <h2 class="screen-title">Проекты Vlast</h2>
+            <div class="buttons-grid">
+                <a href="https://t.me/+r364cCGXjUc5YTNi" target="_blank" class="menu-btn project-btn">
+                    <i class="fas fa-skull"></i>
+                    <span>Проект "Death God"</span>
+                </a>
+                <a href="https://t.me/+yceSKExV-hU1NDFi" target="_blank" class="menu-btn project-btn">
+                    <i class="fas fa-comments"></i>
+                    <span>Чат "Vlast"</span>
+                </a>
+                <a href="https://t.me/listvlast" target="_blank" class="menu-btn project-btn">
+                    <i class="fas fa-list"></i>
+                    <span>Лист</span>
+                </a>
+                <a href="https://t.me/biovlast" target="_blank" class="menu-btn project-btn">
+                    <i class="fas fa-id-card"></i>
+                    <span>Био</span>
+                </a>
+                <a href="https://t.me/boggarema" target="_blank" class="menu-btn project-btn">
+                    <i class="fas fa-wrench"></i>
+                    <span>Адаптер</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Экран соцсетей -->
+    <div class="screen social-screen">
+        <div class="container">
+            <button class="back-btn"><i class="fas fa-arrow-left"></i> Назад</button>
+            <h2 class="screen-title">Социальные сети</h2>
+            <div class="buttons-grid">
+                <button class="menu-btn" data-target="telegram">
+                    <i class="fab fa-telegram"></i>
+                    <span>Телеграм</span>
+                </button>
+                <a href="https://discord.gg/VYVrNerz" target="_blank" class="menu-btn">
+                    <i class="fab fa-discord"></i>
+                    <span>Дискорд</span>
+                </a>
+                <a href="http://tiktok.com/@garemkm" target="_blank" class="menu-btn">
+                    <i class="fab fa-tiktok"></i>
+                    <span>Тикток</span>
+                </a>
+                <a href="https://t.me/vk.com/swatdc" target="_blank" class="menu-btn">
+                    <i class="fab fa-vk"></i>
+                    <span>ВКонтакте</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Экран Телеграм -->
+    <div class="screen telegram-screen">
+        <div class="container">
+            <button class="back-btn"><i class="fas fa-arrow-left"></i> Назад</button>
+            <h2 class="screen-title">Телеграм</h2>
+            <div class="buttons-grid">
+                <a href="https://t.me/swatdc" target="_blank" class="menu-btn">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Связь</span>
+                </a>
+                <a href="https://t.me/vlastiblockbot" target="_blank" class="menu-btn">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Если спамблок</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Экран команды -->
+    <div class="screen team-screen">
+        <div class="container">
+            <button class="back-btn"><i class="fas fa-arrow-left"></i> Назад</button>
+            <h2 class="screen-title">Команда Vlast</h2>
+            <div class="buttons-grid">
+                <a href="http://t.me/westett" target="_blank" class="menu-btn">
+                    <i class="fas fa-paint-brush"></i>
+                    <span>Дизайнер</span>
+                </a>
+                <a href="http://t.me/attackleksikonov" target="_blank" class="menu-btn">
+                    <i class="fas fa-video"></i>
+                    <span>Эдитор</span>
+                </a>
+                <a href="http://t.me/westett" target="_blank" class="menu-btn">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Менеджер</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Экран услуг -->
+    <div class="screen services-screen">
+        <div class="container">
+            <button class="back-btn"><i class="fas fa-arrow-left"></i> Назад</button>
+            <h2 class="screen-title">Услуги</h2>
+            <div class="buttons-grid">
+                <a href="https://t.me/repExo" target="_blank" class="menu-btn">
+                    <i class="fas fa-star"></i>
+                    <span>Репутация</span>
+                </a>
+                <a href="https://t.me/vlastdef" target="_blank" class="menu-btn">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Бесплатный деф</span>
+                </a>
+                <a href="https://t.me/vlastrenta" target="_blank" class="menu-btn">
+                    <i class="fas fa-handshake"></i>
+                    <span>Рента</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
