@@ -161,21 +161,8 @@ body::before {
     text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
 }
 
-/* Сетка кнопок главного меню */
-.main-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto auto;
-    gap: 25px;
-    margin: 40px 0;
-}
-
-.main-grid .menu-btn:nth-child(3) {
-    grid-column: 1 / span 2;
-}
-
-/* Кнопки */
-.menu-btn {
+/* Основные стили кнопок */
+.action-btn, .link-btn {
     background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(139, 0, 0, 0.2));
     border: 2px solid rgba(255, 0, 0, 0.3);
     border-radius: 18px;
@@ -196,20 +183,37 @@ body::before {
     min-height: 140px;
 }
 
-.menu-btn:hover {
+.link-btn {
+    display: flex !important;
+}
+
+.action-btn:hover, .link-btn:hover {
     background: linear-gradient(135deg, rgba(255, 0, 0, 0.3), rgba(139, 0, 0, 0.3));
     border-color: rgba(255, 0, 0, 0.6);
     transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(255, 0, 0, 0.25);
 }
 
-.menu-btn:active {
+.action-btn:active, .link-btn:active {
     transform: translateY(-4px);
 }
 
-.menu-btn i {
+.action-btn i, .link-btn i {
     font-size: 2.5rem;
     margin-bottom: 12px;
+}
+
+/* Сетка кнопок главного меню */
+.main-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.main-grid .action-btn:nth-child(3) {
+    grid-column: 1 / span 2;
 }
 
 /* Большая кнопка услуг */
@@ -264,9 +268,9 @@ body::before {
     left: 20px;
     background: rgba(255, 0, 0, 0.2);
     border: 1px solid rgba(255, 0, 0, 0.3);
-    color: white;
-    padding: 12px 24px;
     border-radius: 12px;
+    padding: 12px 24px;
+    color: white;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
@@ -275,12 +279,39 @@ body::before {
     display: flex;
     align-items: center;
     gap: 8px;
+    width: auto;
+    max-width: 120px;
 }
 
 .back-btn:hover {
     background: rgba(255, 0, 0, 0.3);
     border-color: rgba(255, 0, 0, 0.6);
     transform: translateX(-3px);
+}
+
+/* Сетки кнопок для внутренних экранов */
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+/* Исправление для телеграм экрана на мобильных */
+.telegram-screen .buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+.telegram-screen .link-btn {
+    min-width: 0;
+    width: 100%;
 }
 
 /* Информация о пользователе */
@@ -353,11 +384,11 @@ body::before {
         gap: 20px;
     }
     
-    .main-grid .menu-btn:nth-child(3) {
+    .main-grid .action-btn:nth-child(3) {
         grid-column: 1;
     }
     
-    .menu-btn {
+    .action-btn, .link-btn {
         padding: 20px;
         min-height: 120px;
         font-size: 1.1rem;
@@ -380,6 +411,16 @@ body::before {
         max-width: 100%;
     }
     
+    /* Исправление для телеграм экрана на мобильных */
+    .telegram-screen .buttons-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+    }
+    
+    .telegram-screen .link-btn {
+        width: 100%;
+    }
+    
     .intro-title {
         font-size: 2rem;
     }
@@ -398,6 +439,7 @@ body::before {
     .back-btn {
         padding: 10px 15px;
         font-size: 1rem;
+        max-width: 100px;
     }
     
     .user-info {
@@ -405,6 +447,12 @@ body::before {
         right: 10px;
         font-size: 0.9rem;
         padding: 6px 12px;
+    }
+    
+    /* Улучшение сетки для внутренних экранов */
+    .buttons-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
     }
 }
 
@@ -421,12 +469,12 @@ body::before {
         font-size: 2.8rem;
     }
     
-    .menu-btn {
+    .action-btn, .link-btn {
         min-height: 110px;
         padding: 18px;
     }
     
-    .menu-btn i {
+    .action-btn i, .link-btn i {
         font-size: 2rem;
     }
     
@@ -441,5 +489,16 @@ body::before {
     
     .creator-btn i {
         font-size: 1.1rem;
+    }
+    
+    /* Еще больше улучшений для телеграм экрана */
+    .telegram-screen .buttons-grid {
+        grid-template-columns: 1fr;
+        max-width: 280px;
+    }
+    
+    .buttons-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 }
