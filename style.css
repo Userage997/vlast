@@ -59,6 +59,11 @@ body::before {
     text-align: center;
 }
 
+/* Особый контейнер для экрана услуг (без заголовка) */
+.services-screen .container {
+    padding-top: 40px; /* Дополнительный отступ сверху, чтобы компенсировать отсутствие заголовка */
+}
+
 /* Кнопка создателя сайта */
 .creator-btn {
     position: fixed;
@@ -421,6 +426,11 @@ body::before {
         width: 100%;
     }
     
+    /* Экран услуг на мобильных */
+    .services-screen .container {
+        padding-top: 30px;
+    }
+    
     .intro-title {
         font-size: 2rem;
     }
@@ -476,6 +486,11 @@ body::before {
     
     .action-btn i, .link-btn i {
         font-size: 2rem;
+    }
+    
+    /* Экран услуг на очень маленьких экранах */
+    .services-screen .container {
+        padding-top: 25px;
     }
     
     .creator-btn {
