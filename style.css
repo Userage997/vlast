@@ -64,42 +64,6 @@ body::before {
     padding-top: 40px; /* Дополнительный отступ сверху, чтобы компенсировать отсутствие заголовка */
 }
 
-/* Кнопка создателя сайта */
-.creator-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, rgba(255, 51, 51, 0.2), rgba(139, 0, 0, 0.2));
-    border: 2px solid rgba(255, 51, 51, 0.3);
-    border-radius: 12px;
-    padding: 12px 20px;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    animation: fadeIn 1s ease-out 4s forwards;
-    opacity: 0;
-}
-
-.creator-btn:hover {
-    background: linear-gradient(135deg, rgba(255, 51, 51, 0.3), rgba(139, 0, 0, 0.3));
-    border-color: rgba(255, 51, 51, 0.6);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(255, 51, 51, 0.2);
-}
-
-.creator-btn i {
-    font-size: 1.2rem;
-}
-
 /* Вступительная анимация */
 .intro-screen {
     background: rgba(0, 0, 0, 0.8);
@@ -149,7 +113,7 @@ body::before {
 .menu-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 2.8rem;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     color: white;
     text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
 }
@@ -186,6 +150,7 @@ body::before {
     text-decoration: none;
     backdrop-filter: blur(10px);
     min-height: 140px;
+    text-align: center;
 }
 
 .link-btn {
@@ -208,17 +173,43 @@ body::before {
     margin-bottom: 12px;
 }
 
-/* Сетка кнопок главного меню */
+/* Главное меню с 5 кнопками: 3 сверху, 2 снизу в промежутках */
 .main-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto;
     gap: 25px;
     margin: 40px 0;
+    position: relative;
 }
 
+/* Верхний ряд - 3 кнопки */
+.main-grid .action-btn:nth-child(1),
+.main-grid .action-btn:nth-child(2),
 .main-grid .action-btn:nth-child(3) {
-    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+
+/* Нижний ряд - 2 кнопки, размещенные в промежутках между верхними */
+.main-grid .action-btn:nth-child(4),
+.main-grid .link-btn.creator-main-btn {
+    grid-row: 2;
+    min-height: 160px;
+}
+
+/* Кнопка "Услуги" (4-я) - под промежутком между 1 и 2 кнопкой сверху */
+.main-grid .action-btn:nth-child(4) {
+    grid-column: 1 / 3;
+    margin-left: 12.5%; /* Сдвигаем вправо на половину промежутка */
+    width: 75%; /* Ширина равна ширине двух кнопок минус промежуток */
+}
+
+/* Кнопка "Создатель сайта" (5-я) - под промежутком между 2 и 3 кнопкой сверху */
+.main-grid .link-btn.creator-main-btn {
+    grid-column: 2 / 4;
+    margin-right: 12.5%; /* Сдвигаем влево на половину промежутка */
+    width: 75%; /* Ширина равна ширине двух кнопок минус промежуток */
+    margin-left: -12.5%; /* Компенсируем сдвиг сетки */
 }
 
 /* Большая кнопка услуг */
@@ -378,19 +369,27 @@ body::before {
     .menu-title {
         font-size: 2.2rem;
         margin-top: 40px;
+        margin-bottom: 30px;
     }
     
     .screen-title {
         font-size: 2rem;
     }
     
+    /* На мобильных: все кнопки в одну колонку */
     .main-grid {
         grid-template-columns: 1fr;
+        grid-template-rows: auto;
         gap: 20px;
     }
     
-    .main-grid .action-btn:nth-child(3) {
-        grid-column: 1;
+    .main-grid .action-btn,
+    .main-grid .link-btn.creator-main-btn {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
     
     .action-btn, .link-btn {
@@ -439,13 +438,6 @@ body::before {
         font-size: 3.5rem;
     }
     
-    .creator-btn {
-        top: 15px;
-        right: 15px;
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
-    
     .back-btn {
         padding: 10px 15px;
         font-size: 1rem;
@@ -491,19 +483,6 @@ body::before {
     /* Экран услуг на очень маленьких экранах */
     .services-screen .container {
         padding-top: 25px;
-    }
-    
-    .creator-btn {
-        font-size: 0.8rem;
-        padding: 8px 12px;
-    }
-    
-    .creator-btn span {
-        display: none;
-    }
-    
-    .creator-btn i {
-        font-size: 1.1rem;
     }
     
     /* Еще больше улучшений для телеграм экрана */
